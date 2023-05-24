@@ -5,6 +5,8 @@ def print_dir_size(files_format: str, directory: str = '.'):
     directory = directory.replace('"', '')
     files_format = files_format.replace('*', '')
     print(files_format)
+    if not os.path.exists(directory):
+        raise f"directory: {directory} does not exists"
     total_size = 0
     file_count = 0
     for dirpath, dirnames, filenames in os.walk(directory):
